@@ -5,6 +5,7 @@ var router = express.Router();
 const jwt = require('jsonwebtoken');
 const formidable = require('formidable');
 const config = require('./../db.config');
+const fs = require('fs');
 const userInfoTemplate = require('./../global/userInfo.js');
 /* GET home page. */
 router.post('/',(req,res,next)=> {
@@ -48,12 +49,16 @@ router.post('/',(req,res,next)=> {
 });
 /* POST login page. */
 router.post('/reset', function(req, res, next) {
-	const form = new formidable.IncomingForm({uploadDir:"./uploadimages",keepExtensions:true});
+	const form = new formidable.IncomingForm({uploadDir:"./public/uploadimages",keepExtensions:true});
 	form.parse(req,(err,fields,files)=>{
     console.log(files);
+    console.log(files.touxiang.path);
     let obj = {id:0};
-    let imgpath = {imgpath:"localhost:3000/"+files.file.path};
-    console.log(imgpath);
+    let newname = new Date()*1+files.touxiang.name;
+    let imgpath = {imgpath:"/api/uploadimages/"+newname};
+    fs.rename(files.touxiang.path,"./uploadimages/"+newname,function(err){
+      console.log(err);
+    });
     fields = {
       ...obj,
       ...fields,
@@ -76,7 +81,7 @@ router.post('/reset', function(req, res, next) {
 router.get('/getUserInfo',(req,res)=>{
   let resData = userInfoTemplate;
   let data = JSON.stringify(req.query.userId);
-  db.query('select * from userinfo where id ='+data,row=>{
+  db.query('select * from userinfo where id = '+data,row=>{
     let userData = row[0];    
     delete userData.password;
     //设置返回信息
