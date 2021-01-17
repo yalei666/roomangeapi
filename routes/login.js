@@ -56,7 +56,7 @@ router.post('/reset', function(req, res, next) {
     let obj = {id:0};
     let newname = new Date()*1+files.touxiang.name;
     let imgpath = {imgpath:"/api/uploadimages/"+newname};
-    fs.rename(files.touxiang.path,"./uploadimages/"+newname,function(err){
+    fs.rename(files.touxiang.path,"./public/uploadimages/"+newname,function(err){
       console.log(err);
     });
     fields = {
