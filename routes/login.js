@@ -92,7 +92,7 @@ router.get('/getUserInfo',(req,res)=>{
     resData.data.permissions = {
        "/index/seelifeCirel":true,
        "/index/personalInfo":true,
-       "/form/tableList":true,
+       "/bxxiangguan/baoxiu":true,
        "/form/edit":true,
        "/financialManage/financialAdd":userData.role!=='10012'?true:false,
        "/financialManage/financialUpdate":userData.role!=='10012'?true:false,

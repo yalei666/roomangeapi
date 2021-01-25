@@ -27,28 +27,9 @@ let userInfo = {
               "/index/personalInfo":true,
               "/example/tableList":true,
               "/movie/newMovie":true,
-              "/movie/movieSearch":true,
+              "/bxxiangguan/baoxiu":true,
                   "/errorpage/401":false,
-                  "/errorpage/404":false,
-              "/wenti/anguan":true,
-                  "/wenti/luyinbi":true,
-                  "/wenti/shipin":true,
-                  "/wenti/LKJ":true,
-                  "/wenti/jingti":true,
-                  "/wenti/Lais":true,
-                  "/wenti/upload":true,
-              "/example/31":false,
-              "/systemSet/permissionsManage":true,
-              "/systemSet/loginLog":true,
-              "/studentsManage/studentAdd":true,
-              "/studentsManage/studentUpdate":true,
-              "/studentsManage/studentList":true,
-
-              "/financialManage/financialAdd":true,
-              "/financialManage/financialUpdate":true,
-              "/financialManage/financialList":true,
-              "/user/userList":true,
-              "/financialManage/financialEchart":true        
+                  "/errorpage/404":false,      
       }
   }
 }
